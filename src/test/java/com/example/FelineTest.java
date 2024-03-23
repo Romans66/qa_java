@@ -13,8 +13,8 @@ import static org.junit.Assert.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class FelineTest {
-    private final List<String> EXPECTED_LIST_OF_GET_FOOD = List.of("Животные", "Птицы", "Рыба");
-    private final int FELINE_DEFAULT_KITTENS = 1;
+    private final List<String> expectedListOfGetFood = List.of("Животные", "Птицы", "Рыба");
+    private final int felineDefaultKittens = 1;
     @Spy
     private Feline feline;
     
@@ -22,18 +22,18 @@ public class FelineTest {
     public void eatMeatFelineTest() throws Exception {
         List<String> actual = feline.eatMeat();
         Mockito.verify(feline, Mockito.times(1)).getFood("Хищник");
-        assertEquals(actual, EXPECTED_LIST_OF_GET_FOOD);
+        assertEquals(expectedListOfGetFood, actual);
     }
     
     @Test
     public void getFamilyTest() {
-        Assert.assertEquals("Кошачьи", feline.getFamily());
+        Assert.assertEquals(feline.getFamily(), "Кошачьи");
     }
     
     @Test
     public void getKittensDefaultTest() {
         int actual = feline.getKittens();
         Mockito.verify(feline, Mockito.times(1)).getKittens(1);
-        assertEquals(actual, FELINE_DEFAULT_KITTENS);
+        assertEquals(felineDefaultKittens, actual);
     }
 }

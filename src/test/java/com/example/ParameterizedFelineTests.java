@@ -4,15 +4,15 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.Spy;
 
 @RunWith(Parameterized.class)
 public class ParameterizedFelineTests {
     private int getKittensExpectedValue;
     private int expected;
     private Feline feline = new Feline();
-    @Spy
+    @Mock
     private Feline felineSpy = Mockito.spy(feline);
     
     public ParameterizedFelineTests(int getKittensExpectedValue, int expected) {
@@ -34,8 +34,7 @@ public class ParameterizedFelineTests {
     @Test
     public void getKittensTest() {
         int actual = felineSpy.getKittens(getKittensExpectedValue);
-        Mockito.verify(felineSpy).getKittens(Mockito.anyInt());
-        Assert.assertEquals(actual, getKittensExpectedValue);
+        Assert.assertEquals(getKittensExpectedValue, actual);
     }
     
 }

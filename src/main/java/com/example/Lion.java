@@ -9,7 +9,11 @@ public class Lion extends Animal {
     
     public Lion(boolean hasMane, Feline feline) {
         this.hasMane = hasMane;
-        this.feline = feline;
+        if (feline == null) {
+            this.feline = new Feline();
+        } else {
+            this.feline = feline;
+        }
     }
     
     public Lion(String sex) throws Exception {
