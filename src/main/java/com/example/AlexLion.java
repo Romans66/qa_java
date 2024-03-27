@@ -11,7 +11,8 @@ public class AlexLion extends Lion {
     }
     
     public AlexLion() throws Exception {
-        super("Самец");
+        super("Самец", new Feline());
+        this.feline = new Feline();
     }
     
     public List<String> getFriends() {

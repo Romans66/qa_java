@@ -34,19 +34,19 @@ public class LionTest {
     
     @Test
     public void doesHaveManeMaleMaleTest() throws Exception {
-        lion = new Lion(male);
+        lion = new Lion(male, feline);
         assertTrue(lion.doesHaveMane());
     }
     
     @Test
     public void doesHaveManeFemaleMaleTest() throws Exception {
-        lion = new Lion(female);
+        lion = new Lion(female, feline);
         assertFalse(lion.doesHaveMane());
     }
     
     @Test
     public void doesHaveManeUnknownMaleTest() {
-        Exception exception = assertThrows(Exception.class, () -> lion = new Lion(unknownMale));
+        Exception exception = assertThrows(Exception.class, () -> lion = new Lion(unknownMale, feline));
         assertEquals(exceptionMaleMessage, exception.getMessage());
     }
     
