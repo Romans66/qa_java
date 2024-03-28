@@ -18,7 +18,7 @@ public class AlexLionTest {
     private final int alexKittens = 0;
     @Mock
     private Feline feline;
-    @Mock
+    
     private AlexLion alexLion;
     
     @Before
@@ -40,6 +40,7 @@ public class AlexLionTest {
     
     @Test
     public void getKittensAlexTest() {
+        Mockito.when(feline.getKittens(0)).thenReturn(0);
         int actual = alexLion.getKittens();
         Mockito.verify(feline, Mockito.times(1)).getKittens(0);
         assertEquals(alexKittens, actual);

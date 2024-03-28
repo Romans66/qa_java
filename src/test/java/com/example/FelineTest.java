@@ -15,6 +15,7 @@ import static org.junit.Assert.*;
 public class FelineTest {
     private final List<String> expectedListOfGetFood = List.of("Животные", "Птицы", "Рыба");
     private final int felineDefaultKittens = 1;
+    private final String felineFamily = "Кошачьи";
     @Spy
     private Feline feline;
     
@@ -27,11 +28,12 @@ public class FelineTest {
     
     @Test
     public void getFamilyTest() {
-        Assert.assertEquals(feline.getFamily(), "Кошачьи");
+        Assert.assertEquals(felineFamily, feline.getFamily());
     }
     
     @Test
     public void getKittensDefaultTest() {
+        Mockito.when(feline.getKittens(1)).thenReturn(1);
         int actual = feline.getKittens();
         Mockito.verify(feline, Mockito.times(1)).getKittens(1);
         assertEquals(felineDefaultKittens, actual);

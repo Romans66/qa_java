@@ -11,20 +11,21 @@ public class AlexLion extends Lion {
 <span class="fc" id="L11">    }</span>
     
     public AlexLion() throws Exception {
-<span class="fc" id="L14">        super(&quot;Самец&quot;);</span>
-<span class="fc" id="L15">    }</span>
+<span class="nc" id="L14">        super(&quot;Самец&quot;, new Feline());</span>
+<span class="nc" id="L15">        this.feline = new Feline();</span>
+<span class="nc" id="L16">    }</span>
     
     public List&lt;String&gt; getFriends() {
-<span class="fc" id="L18">        return List.of(&quot;Зебра Марти&quot;, &quot;Бегемотиха Глория&quot;, &quot;Жираф Мелман&quot;);</span>
+<span class="fc" id="L19">        return List.of(&quot;Зебра Марти&quot;, &quot;Бегемотиха Глория&quot;, &quot;Жираф Мелман&quot;);</span>
     }
     
     public String getPlaceOfLiving() {
-<span class="fc" id="L22">        return &quot;Нью-Йоркский зоопарк&quot;;</span>
+<span class="fc" id="L23">        return &quot;Нью-Йоркский зоопарк&quot;;</span>
     }
     
     @Override
     public int getKittens() {
-<span class="fc" id="L27">        return feline.getKittens(0);</span>
+<span class="fc" id="L28">        return feline.getKittens(0);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

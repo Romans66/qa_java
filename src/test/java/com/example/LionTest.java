@@ -21,13 +21,14 @@ public class LionTest {
     private final String exceptionMaleMessage = "Используйте допустимые значения пола животного - самец или самка";
     
     @Mock
-    private Feline feline;
-    @Mock
+    private Feline feline = new Feline();
+    
     private Lion lion;
     
     @Test
     public void getKittensTest() throws Exception {
-        Mockito.when(lion.getKittens()).thenReturn(1);
+        Lion lion = new Lion(booleanMale, feline);
+        Mockito.when(feline.getKittens()).thenReturn(1);
         int actual = lion.getKittens();
         assertEquals(expectedGetKittens, actual);
     }
@@ -52,11 +53,10 @@ public class LionTest {
     
     @Test
     public void getFoodLionTest() throws Exception {
-        Lion lionSpy = new Lion(booleanMale, feline);
-        lion = Mockito.spy(lionSpy);
-        Mockito.when(lion.getFood()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
+        Lion lion = new Lion(booleanMale, feline);
+        Mockito.when(feline.getFood("Хищник")).thenReturn(List.of("Животные", "Птицы", "Рыба"));
         List<String> actual = lion.getFood();
-        Mockito.verify(feline, Mockito.times(1)).getFood("Хищник");
         assertEquals(expectedListOfGetFood, actual);
+        Mockito.verify(feline, Mockito.times(1)).getFood("Хищник");
     }
 }
